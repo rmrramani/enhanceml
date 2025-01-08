@@ -34,6 +34,8 @@ jobs:
 
     - name: Executing training pipeline
       run: python pipelines/training.py --environment=pypi run
+      env:
+        MLFLOW_TRACKING_URI: ${{secrets.MLFLOW_URI}}
 
     # - name: Await MLflow Server Shutdown
     #   if: always()  # Run even if previous steps fail
