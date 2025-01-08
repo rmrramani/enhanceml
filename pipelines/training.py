@@ -76,8 +76,6 @@ class Training(FlowSpec, FlowMixin):
         """Start and prepare the Training pipeline."""
         import mlflow
 
-        # mlflow.enable_system_metrics_logging()
-
         self.mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI")
 
         logging.info("MLFLOW_TRACKING_URI: %s", self.mlflow_tracking_uri)
