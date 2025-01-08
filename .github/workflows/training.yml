@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MLFLOW_TRACKING_URI: "http://127.0.0.1:5000"
+      MLFLOW_TRACKING_URI: ${{secrets.MLFLOW_URI}}
 
     steps:
     - uses: actions/checkout@v3
@@ -28,12 +28,12 @@ jobs:
         pip3 install -U pip && pip3 install -r requirements.txt
     
     - name: Start MLflow Server (background)
-      run: mlflow server --host 127.0.0.1 --port 5000
+      run: mlflow server --host ${{secrets.ADDRESS}} --port 5000
 
 
     - name: Executing training pipeline
       run: python pipelines/training.py --environment=pypi run
 
-    - name: Await MLflow Server Shutdown
-      if: always()  # Run even if previous steps fail
-      run: pkill -f "mlflow server" || true # Stop the server gracefully
+    # - name: Await MLflow Server Shutdown
+    #   if: always()  # Run even if previous steps fail
+    #   run: pkill -f "mlflow server" || true # Stop the server gracefully

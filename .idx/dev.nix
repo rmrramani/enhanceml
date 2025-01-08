@@ -15,6 +15,7 @@ in
     pkgs.sqlite
     pkgs.openssh
     pkgs.python311Packages.psutil
+    pkgs.dig.dnsutils
   ];
 
   env = pkgs.lib.recursiveUpdate {
