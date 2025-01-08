@@ -14,7 +14,6 @@ jobs:
 
     # env:
     #   MLFLOW_TRACKING_URI: ${{secrets.MLFLOW_URI}}
-
     steps:
     - uses: actions/checkout@v3
 
@@ -32,7 +31,6 @@ jobs:
     
     # - name: Start MLflow Server (background)
     #   run: mlflow server --host ${{secrets.ADDRESS}} --port 5000
-
 
     - name: Executing training pipeline
       run: python pipelines/training.py --environment=pypi run
