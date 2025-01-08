@@ -14,6 +14,7 @@ in
     pkgs.azure-cli
     pkgs.sqlite
     pkgs.openssh
+    pkgs.python311Packages.psutil
   ];
 
   env = pkgs.lib.recursiveUpdate {

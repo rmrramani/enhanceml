@@ -43,6 +43,7 @@ configure_logging()
         "mlflow",
         "setuptools",
         "python-dotenv",
+        "psutil",
     ),
 )
 class Training(FlowSpec, FlowMixin):
@@ -68,6 +69,10 @@ class Training(FlowSpec, FlowMixin):
             "MLFLOW_TRACKING_URI": os.getenv(
                 "MLFLOW_TRACKING_URI",
                 "http://127.0.0.1:5000",
+            ),
+            "MLFLOW_ENABLE_SYSTEM_METRICS_LOGGING":os.getenv(
+                "MLFLOW_ENABLE_SYSTEM_METRICS_LOGGING",
+                "true",
             ),
         },
     )
