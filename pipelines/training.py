@@ -70,16 +70,14 @@ class Training(FlowSpec, FlowMixin):
                 "MLFLOW_TRACKING_URI",
                 "http://127.0.0.1:5000",
             ),
-            "MLFLOW_ENABLE_SYSTEM_METRICS_LOGGING":os.getenv(
-                "MLFLOW_ENABLE_SYSTEM_METRICS_LOGGING",
-                "true",
-            ),
         },
     )
     @step
     def start(self):
         """Start and prepare the Training pipeline."""
         import mlflow
+
+        # mlflow.enable_system_metrics_logging()
 
         self.mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI")
 
